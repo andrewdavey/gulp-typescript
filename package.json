@@ -1,10 +1,14 @@
-
 {
   "name": "gulp-typescript",
   "version": "0.0.0",
   "description": "A plugin for Gulp",
   "keywords": [
-    "gulpplugin"
+    "gulpplugin",
+    "typescript",
+    "compiler",
+    "transpiler",
+    "language",
+    "javascript"
   ],
   "homepage": "https://github.com/jedmao/gulp-typescript",
   "bugs": "https://github.com/jedmao/gulp-typescript/issues",
@@ -19,15 +23,21 @@
     "url": "git://github.com/jedmao/gulp-typescript.git"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "gulp npm:test"
   },
   "dependencies": {
-    "event-stream": "*"
+    "event-stream": "*",
+    "typescript": "~0.9.5"
   },
   "devDependencies": {
-    "mocha": "~1.14.0",
-    "should": "~2.1.0",
-    "gulp-util": "~2.2.0"
+    "chai": "~1.8.1",
+    "jshint-stylish": "~0.1.5",
+    "gulp": "~3.3.0",
+    "gulp-jshint": "~1.3.4",
+    "gulp-mocha": "~0.3.0",
+    "gulp-util": "~2.2.0",
+    "gulp-watch": "~0.3.3",
+    "mocha": "~1.14.0"
   },
   "engines": {
     "node": ">=0.8.0",

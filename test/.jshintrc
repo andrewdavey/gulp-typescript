@@ -17,5 +17,10 @@
     "strict": true,
     "trailing": true,
     "smarttabs": true,
-    "white": false
+    "white": false,
+    "expr": true,
+    "predef": [
+        "describe",
+        "it"
+    ]
 }
