@@ -1,15 +1,15 @@
-var es = require("event-stream");
+var es = require('event-stream');
 
-module.exports = function (param) {
-	"use strict";
+module.exports = function(param) {
+	'use strict';
 
-	// see "Writing a plugin"
+	// see 'Writing a plugin'
 	// https://github.com/wearefractal/gulp/wiki/Writing-a-gulp-plugin
 	function typescript(file, callback) {
 
 		// if necessary check for required param(s), e.g. options hash, etc.
 		if (!param) {
-			callback(new Error("gulp-typescript: No param supplied"), undefined);
+			callback(new Error('gulp-typescript: No param supplied'), undefined);
 		}
 
 		// check if file.contents is a `Buffer`
@@ -17,7 +17,7 @@ module.exports = function (param) {
 
 			// manipulate buffer in some way
 			// http://nodejs.org/api/buffer.html
-			file.contents = new Buffer(String(file.contents) + "\n" + param);
+			file.contents = new Buffer(String(file.contents) + '\n' + param);
 
 			callback(null, file);
 
@@ -28,7 +28,7 @@ module.exports = function (param) {
 			// https://github.com/dominictarr/event-stream
 
 			// accepting streams is optional
-			callback(new Error("gulp-typescript: streams not supported"), undefined);
+			callback(new Error('gulp-typescript: streams not supported'), undefined);
 		}
 	}
 

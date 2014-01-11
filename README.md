@@ -2,7 +2,7 @@
 
 # gulp-typescript [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][depstat-image]][depstat-url]
 
-> typescript plugin for [gulp](https://github.com/wearefractal/gulp)
+> TypeScript plugin for [gulp](https://github.com/wearefractal/gulp)
 
 ## Usage
 
@@ -15,13 +15,13 @@ npm install --save-dev gulp-typescript
 Then, add it to your `gulpfile.js`:
 
 ```javascript
-var typescript = require("gulp-typescript");
+var typescript = require('gulp-typescript');
 
-gulp.src("./src/*.ext")
+gulp.src('./src/*.ext')
 	.pipe(typescript({
-		msg: "Hello Gulp!"
+		msg: 'Hello Gulp!'
 	}))
-	.pipe(gulp.dest("./dist"));
+	.pipe(gulp.dest('./dist'));
 ```
 
 ## API
