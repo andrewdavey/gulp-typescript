@@ -1,0 +1,41 @@
+
+{
+  "name": "gulp-typescript",
+  "version": "0.0.0",
+  "description": "A plugin for Gulp",
+  "keywords": [
+    "gulpplugin"
+  ],
+  "homepage": "https://github.com/jedmao/gulp-typescript",
+  "bugs": "https://github.com/jedmao/gulp-typescript/issues",
+  "author": {
+    "name": "Jed Mao",
+    "email": "jed.hunsaker–gmail",
+    "url": "https://github.com/jedmao"
+  },
+  "main": "./index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jedmao/gulp-typescript.git"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "event-stream": "*"
+  },
+  "devDependencies": {
+    "mocha": "~1.14.0",
+    "should": "~2.1.0",
+    "gulp-util": "~2.2.0"
+  },
+  "engines": {
+    "node": ">=0.8.0",
+    "npm": ">=1.2.10"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ]
+}
