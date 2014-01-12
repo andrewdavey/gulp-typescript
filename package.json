@@ -30,7 +30,8 @@
     "gulp-util": "~2.2.0",
     "map-stream": "~0.1.0",
     "through": "~2.3.4",
-    "typescript": "~0.9.5"
+    "typescript": "~0.9.5",
+    "q": "~1.0.0"
   },
   "devDependencies": {
     "chai": "~1.8.1",

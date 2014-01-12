@@ -1,34 +1,32 @@
-var fs = require('fs');
+var FS = require('fs');
 var expect = require('chai').expect;
 var gutil = require('gulp-util');
 var typescript = require('../../lib/app.js');
+var Q = require('q');
 
 
 describe('gulp-typescript', function() {
 
-	it('should generate JavaScript source from TypeScript source', function (done) {
+	it('generates JavaScript source from TypeScript source', function(done) {
 		// Arrange
 		var fakeFile = new gutil.File({
 			base: 'test/fixtures',
 			cwd: 'test',
 			path: 'test/fixtures/lambda.ts',
-			contents: fs.readFileSync('test/fixtures/lambda.ts')
+			contents: FS.readFileSync('test/fixtures/lambda.ts')
 		});
 
 		var stream = typescript();
 
 		// Assert
-		stream.once('end', function (/*actualFile*/) {
+		stream.once('data', function(data) {
 			// Test that command executed
-			var options = { encoding: 'utf8' };
-			fs.readFile('test/fixtures/lambda.js', options, function(err, outputSource) {
-				expect(err).to.be.null;
-				fs.readFile('test/expected/lambda.js', options, function(err2, expectedSource) {
-					expect(err2).to.be.null;
+			var outputSource = String(data.contents);
+			Q.nfcall(FS.readFile, 'test/expected/lambda.js', 'utf8')
+				.done(function(expectedSource) {
 					expect(outputSource).to.equal(expectedSource);
 					done();
 				});
-			});
 		});
 
 		// Act
