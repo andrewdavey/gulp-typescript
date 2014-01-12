@@ -1,5 +1,3 @@
-(PLUGIN AUTHOR: Please read [Plugin README conventions](https://github.com/wearefractal/gulp/wiki/Plugin-README-Conventions), then delete this line)
-
 # gulp-typescript [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][depstat-image]][depstat-url]
 
 > TypeScript plugin for [gulp](https://github.com/wearefractal/gulp)
@@ -17,9 +15,10 @@ Then, add it to your `gulpfile.js`:
 ```javascript
 var typescript = require('gulp-typescript');
 
-gulp.src('./src/*.ext')
+gulp.src('./src/*.ts', { read: false })
 	.pipe(typescript({
-		msg: 'Hello Gulp!'
+		module: 'commonjs',
+		target: 'ES5'
 	}))
 	.pipe(gulp.dest('./dist'));
 ```
@@ -28,11 +27,71 @@ gulp.src('./src/*.ext')
 
 ### typescript(options)
 
-#### options.msg
-Type: `String`  
-Default: `Hello World`
+#### options.declaration / options.d
+Type: `Boolean`
+Default: `false`
 
-The message you wish to attach to file.
+Generates corresponding .d.ts file.
+
+#### options.mapRoot
+Type: `String`
+
+Specifies the location where debugger should locate map files instead of generated locations.
+
+#### options.module / options.m
+Type: `String`
+
+Specify module code generation: `commonjs` or `amd`
+
+#### options.noImplicitAny
+Type: `Boolean`
+Default: `false`
+
+Warn on expressions and declarations with an implied `any` type.
+
+#### options.noResolve
+Type: `Boolean`
+Default: `false`
+
+Skip resolution and preprocessing.
+
+#### options.out
+Type: `String`
+
+Concatenate and emit output to single file.
+
+#### options.outDir
+Type: `String`
+
+Redirect output structure to the directory.
+
+#### options.removeComments
+Type: `Boolean`
+Default: `false`
+
+Do not emit comments to output.
+
+#### options.sourcemap
+Type: `Boolean`
+Default: `false`
+
+Generates corresponding .map file.
+
+#### options.sourceRoot
+Type: `String`
+
+Specifies the location where debugger should locate TypeScript files instead of source locations.
+
+#### options.target / options.t
+Type: `String`
+Default: `ES3`
+
+Specify ECMAScript target version: 'ES3' or 'ES5'
+
+#### options.@&lt;file&rt;
+Note: File is specified in option key.
+
+Insert command line options and files from a file.
 
 
 ## License

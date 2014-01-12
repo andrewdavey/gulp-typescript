@@ -1,8 +1,10 @@
 var gulp = require('gulp');
+var clean = require('gulp-clean');
 var jshint = require('gulp-jshint');
 var mocha = require('gulp-mocha');
 var gutil = require('gulp-util');
 var watch = require('gulp-watch');
+var typescript = require('./lib/app.js');
 
 
 gulp.task('default', function() {
@@ -20,12 +22,12 @@ gulp.task('lint:app', function () {
 });
 
 gulp.task('lint:test', function () {
-	gulp.src('test/**/*.js')
+	gulp.src('test/lib/**/*.js')
 		.pipe(jshint('test/.jshintrc'))
 		.pipe(jshint.reporter('jshint-stylish'));
 });
 
-gulp.task('test', function() {
+gulp.task('test', ['clean:test'], function() {
 	gulp.src('test/**/*.js', { read: false })
 		.pipe(mocha({
 			reporter: 'spec',
@@ -34,6 +36,11 @@ gulp.task('test', function() {
 			}
 		}))
 		.on('error', gutil.log);
+});
+
+gulp.task('clean:test', function () {
+	gulp.src('test/lib/fixtures/**/*.js', { read: false })
+		.pipe(clean());
 });
 
 gulp.task('npm:test', function() {
@@ -45,4 +52,9 @@ gulp.task('watch', function() {
 		.pipe(watch(function(events, cb) {
 			gulp.run('lint', 'test', cb);
 		}));
+});
+
+gulp.task('typescript', function () {
+	gulp.src('test/fixtures/lambda.ts', { read: false })
+		.pipe(typescript());
 });

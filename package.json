@@ -17,7 +17,7 @@
     "email": "jed.hunsaker–gmail",
     "url": "https://github.com/jedmao"
   },
-  "main": "./index.js",
+  "main": "./lib/app.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/jedmao/gulp-typescript.git"
@@ -26,7 +26,10 @@
     "test": "gulp npm:test"
   },
   "dependencies": {
-    "event-stream": "*",
+    "gulp-exec": "~1.0.3",
+    "gulp-util": "~2.2.0",
+    "map-stream": "~0.1.0",
+    "through": "~2.3.4",
     "typescript": "~0.9.5"
   },
   "devDependencies": {
@@ -35,8 +38,8 @@
     "gulp": "~3.3.0",
     "gulp-jshint": "~1.3.4",
     "gulp-mocha": "~0.3.0",
-    "gulp-util": "~2.2.0",
     "gulp-watch": "~0.3.3",
+    "gulp-clean": "~0.2.2",
     "mocha": "~1.14.0"
   },
   "engines": {
